@@ -1,28 +1,34 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Label } from "@/components/ui/label";
 
-import { Checkbox } from "@/components/ui/checkbox";
-
-export function Login() {
+export function SignUp() {
   return (
     <div className="flex items-center justify-center place-self-center h-full w-80  mt-20">
       <div className="flex w-full max-w-sm flex-col gap-4 rounded-large">
         <div className="flex flex-col items-center pb-6">
-          <p className="text-xl font-medium">Влезте в акаунта си</p>
+          <p className="text-lg text-default-500">За начало създайте акаунт</p>
         </div>
         <div className="flex flex-col gap-4">
-          <Input placeholder="Въведете имейла си" type="email" />
-          <Input placeholder="Въведете паролата си" type="password" />
-          <div className="flex w-full items-center justify-between px-1 py-2">
-            <div className="flex items-center space-x-2">
-              <Checkbox name="remember" />
-              <Label htmlFor="terms">Запомни ме</Label>
-            </div>
-            <Button variant="link">Забравихте паролата?</Button>
+          <div className="flex flex-col mb-6">
+            <Input placeholder="Въведете потребителското си име" type="text" />
+            <Input
+              placeholder="Въведете имейла си"
+              type="email"
+              className="mt-4"
+            />
+            <Input
+              placeholder="Въведете паролата си"
+              type="password"
+              className="mt-4"
+            />
+            <Input
+              placeholder="Подтвърдете паролата си"
+              type="password"
+              className="mt-4"
+            />
           </div>
-          <Button variant="default">Влез</Button>
+          <Button variant="default">Регистрирай се</Button>
         </div>
         <div className="flex items-center gap-4 py-2">
           <Separator className="flex-1" />
@@ -33,7 +39,7 @@ export function Login() {
           <Button variant="outline">Продължи с Google</Button>
         </div>
         <p className="text-center text-small">
-          Трябва да създадете акаунт?&nbsp;
+          Вече имате акаунт?&nbsp;
           <Button variant="link" size="sm">
             Продължи
           </Button>
