@@ -2,6 +2,7 @@ import { Login } from "@/pages";
 import { SignUp } from "@/pages";
 import { UserEquipment } from "@/pages";
 import { UserHistory } from "@/pages";
+import { UserDashboard } from "@/pages";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -19,6 +20,7 @@ function App() {
           <Route element={<SignUp />} path="/sign-up" />
           <Route element={<UserEquipment />} path="/u-eq" />
           <Route element={<UserHistory />} path="/u-his" />
+          <Route element={<UserDashboard />} path="/u-dash" />
         </Routes>
       </BrowserRouter>
     </React.StrictMode>
