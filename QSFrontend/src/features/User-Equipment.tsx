@@ -46,9 +46,9 @@ export function UserEquipment() {
           <AppSidebar />
           <SidebarTrigger className="size-10" />
         </div>
-        <div className="flex flex-col gap-2 mt-12">
+        <div className="flex flex-col mt-12">
           {items.map((item) => (
-            <Card className="w-90 h-32 ml-4 mr-4" key={item.title}>
+            <Card className="w-96 h-32 ml-0.5 mb-1.5" key={item.title}>
               <CardHeader>
                 <CardAction>
                   <img

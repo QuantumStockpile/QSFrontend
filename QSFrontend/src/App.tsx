@@ -1,6 +1,7 @@
 import { Login } from "@/pages";
 import { SignUp } from "@/pages";
 import { UserEquipment } from "@/pages";
+import { UserHistory } from "@/pages";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -17,6 +18,7 @@ function App() {
           <Route element={<Login />} path="/login" />
           <Route element={<SignUp />} path="/sign-up" />
           <Route element={<UserEquipment />} path="/u-eq" />
+          <Route element={<UserHistory />} path="/u-his" />
         </Routes>
       </BrowserRouter>
     </React.StrictMode>
