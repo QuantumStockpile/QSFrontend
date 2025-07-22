@@ -3,6 +3,7 @@ import { SignUp } from "@/pages";
 import { UserEquipment } from "@/pages";
 import { UserHistory } from "@/pages";
 import { UserDashboard } from "@/pages";
+import { UserEquipment2 } from "@/pages";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -21,6 +22,7 @@ function App() {
           <Route element={<UserEquipment />} path="/u-eq" />
           <Route element={<UserHistory />} path="/u-his" />
           <Route element={<UserDashboard />} path="/u-dash" />
+          <Route element={<UserEquipment2 />} path="/u-eq2" />
         </Routes>
       </BrowserRouter>
     </React.StrictMode>
