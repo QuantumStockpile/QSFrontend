@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-//import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Drawer,
   //DrawerClose,
@@ -113,7 +113,7 @@ export function AdminUsers() {
           <div className="mt-12">
             {items.map((item) => (
               <Drawer>
-                <Card className="w-96 ml-0.5 h-32 mb-1.5" key={item.name}>
+                <Card className="w-96 ml-0.5 mb-1.5" key={item.name}>
                   <CardHeader>
                     <CardTitle className="">{item.name}</CardTitle>
                     <CardDescription className="">
@@ -121,6 +121,9 @@ export function AdminUsers() {
                       <DrawerTrigger>See requests</DrawerTrigger>
                     </CardDescription>
                   </CardHeader>
+                  <Button className="w-28 -mb-2 -mt-2 place-self-center">
+                    Make admin
+                  </Button>
                 </Card>
                 <ScrollArea>
                   <DrawerContent>
