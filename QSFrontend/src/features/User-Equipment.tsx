@@ -1,5 +1,5 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/User - Sidebar";
+import { UsAppSidebar } from "@/components/User - Sidebar";
 import {
   Card,
   CardAction,
@@ -43,7 +43,7 @@ export function UserEquipment() {
     <div>
       <SidebarProvider>
         <div className="fixed top-0">
-          <AppSidebar />
+          <UsAppSidebar />
           <SidebarTrigger className="size-10" />
         </div>
         <div className="flex flex-col mt-12">

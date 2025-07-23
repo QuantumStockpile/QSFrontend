@@ -1,5 +1,5 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { UsAppSidebar } from "@/components/User - Sidebar";
+import { AdAppSidebar } from "@/components/Admin-Sidebar";
 import {
   Card,
   //CardAction,
@@ -24,12 +24,14 @@ import { SearchSVG } from "@/svg/SearchSVG";
 
 const items = [
   {
+    name: "Maria P. Petrova",
     title: "Desk",
     date: "02.03.1965",
     condition: "Expecting approving",
     color: "text-slate-500",
   },
   {
+    name: "Kaloyan N. Ivanov",
     title: "Multimedia set",
     date: "14.05.2025",
     condition: "Request approved",
@@ -37,23 +39,27 @@ const items = [
   },
   {
     title: "Pen",
+    name: "Petar M. Vasilev",
     date: "04.04.2024",
     condition: "Returned",
     color: "text-black-900",
   },
   {
     title: "Desk",
+    name: "Elena T. Todorova",
     date: "10.07.2025",
     condition: "Request approved",
     color: "text-green-600",
   },
   {
+    name: "Slavena P. Raicheva",
     title: "Chair",
     date: "15.08.2025",
     condition: "Returned",
     color: "text-black-900",
   },
   {
+    name: "Ivan M. Ivanov",
     title: "Pencil",
     date: "13.10.2024",
     condition: "Expired returning date",
@@ -61,12 +67,12 @@ const items = [
   },
 ];
 
-export function UserHistory() {
+export function AdminHistory() {
   return (
     <div>
       <SidebarProvider>
         <div className="fixed top-0">
-          <UsAppSidebar />
+          <AdAppSidebar />
           <SidebarTrigger className="size-10" />
         </div>
         <div className="flex flex-col mt-12">
@@ -106,10 +112,13 @@ export function UserHistory() {
           </div>
           <div className="mt-12">
             {items.map((item) => (
-              <Card className="w-96 ml-0.5 h-32 mb-1.5" key={item.title}>
+              <Card className="w-96 ml-0.5 h-32 mb-1.5" key={item.name}>
                 <CardHeader>
-                  <CardTitle className="">{item.title}</CardTitle>
-                  <CardDescription className="">{item.date}</CardDescription>
+                  <CardTitle className="">{item.name}</CardTitle>
+                  <CardDescription className="-mb-1">
+                    <Label>The request was made on {item.date}</Label>
+                    <Label>Borrowed: {item.title}</Label>
+                  </CardDescription>
                   <Label className={item.color}>{item.condition}</Label>
                 </CardHeader>
               </Card>

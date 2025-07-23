@@ -4,3 +4,4 @@ export { UserEquipment } from "@/features/User-Equipment";
 export { UserHistory } from "@/features/User-Request History";
 export { UserDashboard } from "@/features/User-Dashboard";
 export { UserEquipment2 } from "@/features/User-Equipment2";
+export { AdminHistory } from "@/features/Admin-Request History";

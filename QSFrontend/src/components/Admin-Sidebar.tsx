@@ -7,7 +7,7 @@ import {
   SidebarMenuButton,
 } from "@/components/ui/sidebar";
 
-export function UsAppSidebar() {
+export function AdAppSidebar() {
   return (
     <Sidebar>
       <SidebarContent>
@@ -18,6 +18,9 @@ export function UsAppSidebar() {
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton>Request History</SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton>Users</SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton>Dashboard</SidebarMenuButton>

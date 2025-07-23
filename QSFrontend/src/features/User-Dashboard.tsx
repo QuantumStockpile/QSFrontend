@@ -1,5 +1,5 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/User - Sidebar";
+import { UsAppSidebar } from "@/components/User - Sidebar";
 import { ChartPieLabel } from "@/components/ui/chart-pie-label";
 import { Label } from "@/components/ui/label";
 
@@ -8,7 +8,7 @@ export function UserDashboard() {
     <div>
       <SidebarProvider>
         <div className="fixed top-0">
-          <AppSidebar />
+          <UsAppSidebar />
           <SidebarTrigger className="size-10" />
         </div>
         <div className="flex flex-col">
