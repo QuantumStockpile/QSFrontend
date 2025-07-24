@@ -6,3 +6,5 @@ export { UserDashboard } from "@/features/User-Dashboard";
 export { UserEquipment2 } from "@/features/User-Equipment2";
 export { AdminHistory } from "@/features/Admin-Request History";
 export { AdminUsers } from "@/features/Admin-Users";
+export { AdminEquipment } from "@/features/Admin-Equipment";
+export { AdminDashboard } from "@/features/Admin-Dashboard";

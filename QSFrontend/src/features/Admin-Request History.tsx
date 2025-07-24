@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { SearchSVG } from "@/svg/SearchSVG";
+import { Button } from "@/components/ui/button";
 
 const items = [
   {
@@ -34,8 +35,8 @@ const items = [
     name: "Kaloyan N. Ivanov",
     title: "Multimedia set",
     date: "14.05.2025",
-    condition: "Request approved",
-    color: "text-green-600",
+    condition: "Expecting approving",
+    color: "text-slate-500",
   },
   {
     title: "Pen",
@@ -66,6 +67,24 @@ const items = [
     color: "text-red-600",
   },
 ];
+
+function Approve(props) {
+  const needsApproving = props.needsApproving;
+  if (needsApproving == "Expecting approving") {
+    return <Button className="w-24 -mb-3 mt-4">Approve</Button>;
+  }
+}
+
+function Decline(props) {
+  const declining = props.declining;
+  if (declining == "Expecting approving") {
+    return (
+      <Button className="w-24 -mb-3 mt-4" variant="destructive">
+        Decilne
+      </Button>
+    );
+  }
+}
 
 export function AdminHistory() {
   return (
@@ -112,7 +131,7 @@ export function AdminHistory() {
           </div>
           <div className="mt-12">
             {items.map((item) => (
-              <Card className="w-96 ml-0.5 h-32 mb-1.5" key={item.name}>
+              <Card className="w-96 ml-0.5 mb-1.5" key={item.name}>
                 <CardHeader>
                   <CardTitle className="">{item.name}</CardTitle>
                   <CardDescription className="-mb-1">
@@ -120,6 +139,10 @@ export function AdminHistory() {
                     <Label>Borrowed: {item.title}</Label>
                   </CardDescription>
                   <Label className={item.color}>{item.condition}</Label>
+                  <div className="flex flex-row gap-6 mb-2">
+                    <Approve needsApproving={item.condition} />
+                    <Decline declining={item.condition} />
+                  </div>
                 </CardHeader>
               </Card>
             ))}
