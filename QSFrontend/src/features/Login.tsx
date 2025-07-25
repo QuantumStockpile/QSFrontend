@@ -2,7 +2,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Label } from "@/components/ui/label";
-
+import { Link } from "react-router-dom";
 import { Checkbox } from "@/components/ui/checkbox";
 
 export function Login() {
@@ -22,7 +22,10 @@ export function Login() {
             </div>
             <Button variant="link">Забравихте паролата?</Button>
           </div>
-          <Button variant="default">Влез</Button>
+          <Button variant="default">
+            Влез
+            <Link to={"/a-eq"} />
+          </Button>
         </div>
         <div className="flex items-center gap-4 py-2">
           <Separator className="flex-1" />
@@ -36,6 +39,7 @@ export function Login() {
           Трябва да създадете акаунт?&nbsp;
           <Button variant="link" size="sm">
             Продължи
+            <Link to={"/sign-up"} />
           </Button>
         </p>
       </div>

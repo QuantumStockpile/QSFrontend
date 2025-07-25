@@ -1,6 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Link } from "react-router-dom";
 
 export function SignUp() {
   return (
@@ -28,7 +29,10 @@ export function SignUp() {
               className="mt-4"
             />
           </div>
-          <Button variant="default">Регистрирай се</Button>
+          <Button variant="default">
+            Регистрирай се
+            <Link to={"/u-eq"} />
+          </Button>
         </div>
         <div className="flex items-center gap-4 py-2">
           <Separator className="flex-1" />
@@ -42,6 +46,7 @@ export function SignUp() {
           Вече имате акаунт?&nbsp;
           <Button variant="link" size="sm">
             Продължи
+            <Link to={"/login"} />
           </Button>
         </p>
       </div>
