@@ -21,7 +21,12 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { SearchSVG } from "@/svg/SearchSVG";
-//import React, { useState } from "react";
+import { useState } from "react";
+
+const parseFormattedDate = (dateString: string): number => {
+  const [day, month, year] = dateString.split(".");
+  return new Date(`${year}-${month}-${day}`).valueOf();
+}; // a helper function for parsing the timedate
 
 const items = [
   {
@@ -29,7 +34,7 @@ const items = [
     date: "02.03.1965",
     condition: "Expecting approving",
     color: "text-slate-500",
-    key: "expected",
+    key: "expecting",
   },
   {
     title: "Multimedia set",
@@ -69,6 +74,36 @@ const items = [
 ];
 
 export function UserHistory() {
+  const [filter, setFilter] = useState("default");
+  const [searchQuery, setSearchQuery] = useState("");
+  const filteredItems = items
+    .filter((item) => {
+      // Item filtering
+      if (filter === "approved") return item.key === "approved";
+      if (filter === "expecting") return item.key === "expecting";
+      if (filter === "returned") return item.key === "returned";
+      if (filter === "expired") return item.key === "expired";
+
+      if (searchQuery) {
+        return (
+          item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.date.includes(searchQuery) ||
+          item.condition.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+      }
+
+      return true; // Show all if no status filter is selected
+    })
+    .sort((a, b) => {
+      // Time sorting
+      if (filter === "newFirst") {
+        return parseFormattedDate(b.date) - parseFormattedDate(a.date);
+      }
+      if (filter === "oldFirst") {
+        return parseFormattedDate(a.date) - parseFormattedDate(b.date);
+      }
+      return 0; // Default order
+    });
   return (
     <div>
       <SidebarProvider>
@@ -79,7 +114,7 @@ export function UserHistory() {
         <div className="flex flex-col mt-12">
           <div className="fixed flex flex-row ml-3 gap-4">
             <div className=" bg-white">
-              <Select>
+              <Select value={filter} onValueChange={setFilter}>
                 <SelectTrigger className="w-34">
                   <SelectValue placeholder="Filter" />
                 </SelectTrigger>
@@ -93,7 +128,7 @@ export function UserHistory() {
                   <SelectGroup>
                     <SelectLabel>Sorted by status</SelectLabel>
                     <SelectItem value="approved">Approved</SelectItem>
-                    <SelectItem value="expected">
+                    <SelectItem value="expecting">
                       Expecting approving
                     </SelectItem>
                     <SelectItem value="returned">Returned</SelectItem>
@@ -108,19 +143,33 @@ export function UserHistory() {
               <div className="-mr-2.5 mt-3">
                 <SearchSVG />
               </div>
-              <Input className="h-9.5 -ml-4 pl-8" />
+              <Input
+                className="h-9.5 -ml-4 pl-8"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
             </div>
           </div>
           <div className="mt-12">
-            {items.map((item) => (
-              <Card className="w-96 ml-0.5 h-32 mb-1.5" key={item.key}>
-                <CardHeader>
-                  <CardTitle className="">{item.title}</CardTitle>
-                  <CardDescription className="">{item.date}</CardDescription>
-                  <Label className={item.color}>{item.condition}</Label>
-                </CardHeader>
-              </Card>
-            ))}
+            {filteredItems.length > 0 ? (
+              filteredItems.map((item) => (
+                <Card
+                  className="w-96 ml-0.5 h-32 mb-1.5"
+                  key={`${item.key}-${item.date}`}
+                >
+                  <CardHeader>
+                    <CardTitle>{item.title}</CardTitle>
+                    <CardDescription>{item.date}</CardDescription>
+                    <Label className={item.color}>{item.condition}</Label>
+                  </CardHeader>
+                </Card>
+              ))
+            ) : (
+              <div className="w-96 ml-0.5 h-32 mb-1.5 flex items-center justify-center">
+                <p>No items found matching your criteria</p>
+              </div>
+            )}
           </div>
         </div>
       </SidebarProvider>

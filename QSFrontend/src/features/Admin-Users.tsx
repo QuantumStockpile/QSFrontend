@@ -31,6 +31,10 @@ import {
   //SelectLabel,
 } from "@/components/ui/select";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Input } from "@/components/ui/input";
+
+import { SearchSVG } from "@/svg/SearchSVG";
+import { useState } from "react";
 
 const requests = [
   {
@@ -38,42 +42,42 @@ const requests = [
     date: "02.03.1965",
     condition: "Expecting approving",
     color: "text-slate-500",
+    key: "expecting",
   },
   {
     title: "Multimedia set",
     date: "14.05.2025",
     condition: "Request approved",
     color: "text-green-600",
+    key: "approved",
   },
   {
     title: "Pen",
     date: "04.04.2024",
     condition: "Returned",
     color: "text-black-900",
+    key: "returned",
   },
   {
     title: "Desk",
     date: "10.07.2025",
     condition: "Request approved",
     color: "text-green-600",
+    key: "approved",
   },
   {
     title: "Chair",
     date: "15.08.2025",
     condition: "Returned",
     color: "text-black-900",
+    key: "returned",
   },
   {
     title: "Pencil",
     date: "13.10.2024",
     condition: "Expired returning date",
     color: "text-red-600",
-  },
-  {
-    title: "Chair",
-    date: "15.08.2025",
-    condition: "Returned",
-    color: "text-black-900",
+    key: "expired",
   },
 ];
 
@@ -86,6 +90,20 @@ const items = [
 ];
 
 export function AdminUsers() {
+  const [filter, setFilter] = useState("default");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredItems = items.filter((item) => {
+    if (searchQuery) {
+      return (
+        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.role.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+    if (filter === "students") return item.role === "Student";
+    if (filter === "teachers") return item.role === "Teacher";
+    return true;
+  });
   return (
     <div>
       <SidebarProvider>
@@ -96,7 +114,7 @@ export function AdminUsers() {
         <div className="mt-12">
           <div className="fixed flex flex-row ml-3 gap-4">
             <div className=" bg-white">
-              <Select>
+              <Select value={filter} onValueChange={setFilter}>
                 <SelectTrigger className="w-34">
                   <SelectValue placeholder="Filter" />
                 </SelectTrigger>
@@ -109,9 +127,20 @@ export function AdminUsers() {
                 </SelectContent>
               </Select>
             </div>
+            <div className="flex flex-row ml-2">
+              <div className="-mr-2.5 mt-3">
+                <SearchSVG />
+              </div>
+              <Input
+                className="h-9.5 -ml-4 pl-8"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
           </div>
           <div className="mt-12">
-            {items.map((item) => (
+            {filteredItems.map((item) => (
               <Drawer>
                 <Card className="w-96 ml-0.5 mb-1.5" key={item.name}>
                   <CardHeader>
