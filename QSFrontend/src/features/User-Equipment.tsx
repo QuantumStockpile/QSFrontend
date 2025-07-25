@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const items = [
   {
@@ -48,20 +49,22 @@ export function UserEquipment() {
         </div>
         <div className="flex flex-col mt-12">
           {items.map((item) => (
-            <Card className="w-96 h-32 ml-0.5 mb-1.5" key={item.title}>
-              <CardHeader>
-                <CardAction>
-                  <img
-                    className="inset-y-0 left-0 object-left size-24"
-                    src={item.url}
-                  />
-                </CardAction>
-                <CardTitle className="">{item.title}</CardTitle>
-                <CardDescription className="-mt-8">
-                  Quantity: {item.quantity}
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            <Link to={"/u-eq2"}>
+              <Card className="w-96 h-32 ml-0.5 mb-1.5" key={item.title}>
+                <CardHeader>
+                  <CardAction>
+                    <img
+                      className="inset-y-0 left-0 object-left size-24"
+                      src={item.url}
+                    />
+                  </CardAction>
+                  <CardTitle className="">{item.title}</CardTitle>
+                  <CardDescription className="-mt-8">
+                    Quantity: {item.quantity}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
           ))}
         </div>
       </SidebarProvider>

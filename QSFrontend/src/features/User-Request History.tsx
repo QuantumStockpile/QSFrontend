@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { SearchSVG } from "@/svg/SearchSVG";
+//import React, { useState } from "react";
 
 const items = [
   {
@@ -28,36 +29,42 @@ const items = [
     date: "02.03.1965",
     condition: "Expecting approving",
     color: "text-slate-500",
+    key: "expected",
   },
   {
     title: "Multimedia set",
     date: "14.05.2025",
     condition: "Request approved",
     color: "text-green-600",
+    key: "approved",
   },
   {
     title: "Pen",
     date: "04.04.2024",
     condition: "Returned",
     color: "text-black-900",
+    key: "returned",
   },
   {
     title: "Desk",
     date: "10.07.2025",
     condition: "Request approved",
     color: "text-green-600",
+    key: "approved",
   },
   {
     title: "Chair",
     date: "15.08.2025",
     condition: "Returned",
     color: "text-black-900",
+    key: "returned",
   },
   {
     title: "Pencil",
     date: "13.10.2024",
     condition: "Expired returning date",
     color: "text-red-600",
+    key: "expired",
   },
 ];
 
@@ -106,7 +113,7 @@ export function UserHistory() {
           </div>
           <div className="mt-12">
             {items.map((item) => (
-              <Card className="w-96 ml-0.5 h-32 mb-1.5" key={item.title}>
+              <Card className="w-96 ml-0.5 h-32 mb-1.5" key={item.key}>
                 <CardHeader>
                   <CardTitle className="">{item.title}</CardTitle>
                   <CardDescription className="">{item.date}</CardDescription>

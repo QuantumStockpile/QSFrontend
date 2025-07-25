@@ -6,6 +6,7 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
 } from "@/components/ui/sidebar";
+import { Link } from "react-router-dom";
 
 export function AdAppSidebar() {
   return (
@@ -14,16 +15,24 @@ export function AdAppSidebar() {
         <SidebarGroup>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton>Equipment</SidebarMenuButton>
+              <SidebarMenuButton>
+                <Link to={"/a-eq"}>Equipment</Link>
+              </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton>Request History</SidebarMenuButton>
+              <SidebarMenuButton>
+                <Link to={"/a-his"}>Request History</Link>
+              </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton>Users</SidebarMenuButton>
+              <SidebarMenuButton>
+                <Link to={"/a-us"}>Users</Link>
+              </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton>Dashboard</SidebarMenuButton>
+              <SidebarMenuButton>
+                <Link to={"/a-das"}>Dashboard</Link>
+              </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton>Profile</SidebarMenuButton>
