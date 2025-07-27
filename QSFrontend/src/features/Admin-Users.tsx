@@ -135,13 +135,17 @@ export function AdminUsers() {
                 <CardHeader>
                   <CardTitle className="">{user.username}</CardTitle>
                   <CardDescription className="">
-                    <Label>{user.email}</Label><br />
-                    <Label>Role: {user.role.description}</Label><br />
-                    <Label>Status: {user.is_active ? "Active" : "Inactive"}</Label>
+                    <Label>{user.email}</Label>
+                    <br />
+                    <Label>Role: {user.role.description}</Label>
+                    <br />
+                    <Label>
+                      Status: {user.is_active ? "Active" : "Inactive"}
+                    </Label>
                   </CardDescription>
                 </CardHeader>
                 {user.role.description !== "admin" && (
-                  <Button 
+                  <Button
                     className="w-28 -mb-2 -mt-2 place-self-center"
                     onClick={() => handleElevateUser(user.email)}
                   >

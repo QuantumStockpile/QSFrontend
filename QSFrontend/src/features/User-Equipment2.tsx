@@ -77,8 +77,8 @@ const items = [
 
 export function UserEquipment2() {
   return (
-    <div>
-      <SidebarProvider>
+    <div className="flex items-center justify-center place-self-center h-full">
+      <SidebarProvider className="">
         <div className="fixed top-0">
           <UsAppSidebar />
           <SidebarTrigger className="size-10" />

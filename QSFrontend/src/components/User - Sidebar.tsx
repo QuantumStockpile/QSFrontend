@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 export function UsAppSidebar() {
   return (
-    <Sidebar>
+    <Sidebar className="z-10">
       <SidebarContent>
         <SidebarGroup>
           <SidebarMenu>

@@ -81,7 +81,7 @@ export function UserDashboard() {
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(
-          errorData.detail || `HTTP error! status: ${response.status}`,
+          errorData.detail || `HTTP error! status: ${response.status}`
         );
       }
 
@@ -98,7 +98,7 @@ export function UserDashboard() {
   };
 
   return (
-    <div>
+    <div className="flex items-center justify-center place-self-center h-full">
       <SidebarProvider>
         <div className="fixed top-0">
           <UsAppSidebar />
@@ -229,7 +229,7 @@ export function UserDashboard() {
                       {forecastData.slice(-5).map(
                         (
                           row,
-                          index, // Show last 5 rows
+                          index // Show last 5 rows
                         ) => (
                           <tr key={index}>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -245,7 +245,7 @@ export function UserDashboard() {
                               {row.yhat_upper.toFixed(2)}
                             </td>
                           </tr>
-                        ),
+                        )
                       )}
                     </tbody>
                   </table>

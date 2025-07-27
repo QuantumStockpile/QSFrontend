@@ -67,9 +67,11 @@ export function AdminEquipment() {
 
   const handleUpdateItem = async () => {
     if (!editingItem) return;
-    
+
     try {
-      await equipmentService.updateEquipment(editingItem.id, { field: editedName });
+      await equipmentService.updateEquipment(editingItem.id, {
+        field: editedName,
+      });
       await loadEquipment();
       setEditingItem(null);
       setEditedName("");
@@ -80,7 +82,7 @@ export function AdminEquipment() {
 
   const handleAddItem = async () => {
     if (!newItemName.trim()) return;
-    
+
     try {
       await equipmentService.createEquipment({ field: newItemName });
       await loadEquipment();
@@ -120,7 +122,7 @@ export function AdminEquipment() {
   }
 
   return (
-    <div>
+    <div className="flex items-center justify-center place-self-center h-full">
       <SidebarProvider>
         <div className="fixed top-0">
           <AdAppSidebar />
@@ -140,7 +142,7 @@ export function AdminEquipment() {
             equipment.map((item, index) => (
               <Drawer key={item.id}>
                 <Card className="w-96 h-32 ml-0.5 mb-1.5">
-                  <DrawerTrigger 
+                  <DrawerTrigger
                     className="fixed right-4 -mt-4"
                     onClick={() => handleEditItem(item)}
                   >
@@ -150,9 +152,9 @@ export function AdminEquipment() {
                   </DrawerTrigger>
                   <CardHeader className="mr-8">
                     <CardAction className="flex flex-row gap-4">
-                      <img 
-                        className="size-24" 
-                        src={getImageUrl(index)} 
+                      <img
+                        className="size-24"
+                        src={getImageUrl(index)}
                         alt={item.field}
                       />
                     </CardAction>
@@ -167,22 +169,19 @@ export function AdminEquipment() {
                     <DrawerTitle>Edit item</DrawerTitle>
                   </DrawerHeader>
                   <DrawerHeader>
-                    <Input 
-                      placeholder="Item name" 
-                      className="mt-4" 
+                    <Input
+                      placeholder="Item name"
+                      className="mt-4"
                       value={editedName}
                       onChange={(e) => setEditedName(e.target.value)}
                     />
                   </DrawerHeader>
                   <div className="flex gap-4 justify-center mb-8 mt-4">
-                    <Button 
-                      className="w-24" 
-                      onClick={handleUpdateItem}
-                    >
+                    <Button className="w-24" onClick={handleUpdateItem}>
                       Update
                     </Button>
-                    <Button 
-                      className="w-24" 
+                    <Button
+                      className="w-24"
                       variant="destructive"
                       onClick={() => handleDeleteItem(item.id)}
                     >
@@ -207,14 +206,14 @@ export function AdminEquipment() {
                 <DrawerTitle>Add new item</DrawerTitle>
               </DrawerHeader>
               <DrawerHeader>
-                <Input 
-                  placeholder="Item name" 
-                  className="mt-4" 
+                <Input
+                  placeholder="Item name"
+                  className="mt-4"
                   value={newItemName}
                   onChange={(e) => setNewItemName(e.target.value)}
                 />
               </DrawerHeader>
-              <Button 
+              <Button
                 className="w-24 mt-4 mb-8 place-self-center"
                 onClick={handleAddItem}
               >

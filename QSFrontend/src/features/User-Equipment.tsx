@@ -63,7 +63,7 @@ export function UserEquipment() {
   }
 
   return (
-    <div>
+    <div className="flex items-center justify-center place-self-center h-full">
       <SidebarProvider>
         <div className="fixed top-0">
           <UsAppSidebar />
