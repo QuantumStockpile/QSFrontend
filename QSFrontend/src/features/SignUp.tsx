@@ -1,19 +1,10 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-<<<<<<< Updated upstream
 import { authService } from "@/services/authService";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-=======
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
-=======
-import { authService } from "@/services/authService";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
->>>>>>> 8f1d64c73c5472256d34e2e14f0c0a2050ce57a9
->>>>>>> Stashed changes
 
 export function SignUp() {
   const [username, setUsername] = useState("");
@@ -65,9 +56,9 @@ export function SignUp() {
         </div>
         <form onSubmit={handleSignUp} className="flex flex-col gap-4">
           <div className="flex flex-col mb-6">
-            <Input 
-              placeholder="Въведете потребителското си име" 
-              type="text" 
+            <Input
+              placeholder="Въведете потребителското си име"
+              type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
@@ -97,27 +88,11 @@ export function SignUp() {
               required
             />
           </div>
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-          <Button variant="default">
-            Регистрирай се
-            <Link to={"/u-eq"} />
-          </Button>
-        </div>
-=======
->>>>>>> Stashed changes
-          {error && (
-            <p className="text-red-500 text-sm text-center">{error}</p>
-          )}
+          {error && <p className="text-red-500 text-sm text-center">{error}</p>}
           <Button variant="default" type="submit" disabled={loading}>
             {loading ? "Регистриране..." : "Регистрирай се"}
           </Button>
         </form>
-<<<<<<< Updated upstream
-=======
->>>>>>> 8f1d64c73c5472256d34e2e14f0c0a2050ce57a9
->>>>>>> Stashed changes
         <div className="flex items-center gap-4 py-2">
           <Separator className="flex-1" />
           <p className="shrink-0 text-tiny text-default-500">ИЛИ</p>

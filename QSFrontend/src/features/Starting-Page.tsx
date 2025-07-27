@@ -19,7 +19,7 @@ export function LandingPage() {
           variant="link"
           size="sm"
           onClick={handleLoginRedirect}
-          className="w-full bg-blue-600 text-white py-3 rounded-md font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200 shadow-md"
+          className="w-full bg-black text-white py-3 rounded-md font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200 shadow-md"
         >
           Log In
         </Button>
@@ -27,7 +27,7 @@ export function LandingPage() {
           variant="link"
           size="sm"
           onClick={handleSignUpRedirect}
-          className="w-full bg-green-600 text-white py-3 rounded-md font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-200 shadow-md"
+          className="w-full bg-white-600 text-black :py-3 rounded-md font-semibold hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-200 shadow-md"
         >
           Sign Up
         </Button>
