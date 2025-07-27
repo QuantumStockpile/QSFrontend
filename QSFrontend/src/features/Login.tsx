@@ -2,6 +2,13 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Label } from "@/components/ui/label";
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+import { Link } from "react-router-dom";
+=======
+>>>>>>> 8f1d64c73c5472256d34e2e14f0c0a2050ce57a9
+>>>>>>> Stashed changes
 import { Checkbox } from "@/components/ui/checkbox";
 import { authService } from "@/services/authService";
 import { useState } from "react";
@@ -62,6 +69,16 @@ export function Login() {
             </div>
             <Button variant="link" type="button">Забравихте паролата?</Button>
           </div>
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+          <Button variant="default">
+            Влез
+            <Link to={"/a-eq"} />
+          </Button>
+        </div>
+=======
+>>>>>>> Stashed changes
           {error && (
             <p className="text-red-500 text-sm text-center">{error}</p>
           )}
@@ -69,6 +86,10 @@ export function Login() {
             {loading ? "Влизане..." : "Влез"}
           </Button>
         </form>
+<<<<<<< Updated upstream
+=======
+>>>>>>> 8f1d64c73c5472256d34e2e14f0c0a2050ce57a9
+>>>>>>> Stashed changes
         <div className="flex items-center gap-4 py-2">
           <Separator className="flex-1" />
           <p className="shrink-0 text-tiny text-default-500">ИЛИ</p>
@@ -81,6 +102,7 @@ export function Login() {
           Трябва да създадете акаунт?&nbsp;
           <Button variant="link" size="sm" onClick={handleSignUpRedirect}>
             Продължи
+            <Link to={"/sign-up"} />
           </Button>
         </p>
       </div>
