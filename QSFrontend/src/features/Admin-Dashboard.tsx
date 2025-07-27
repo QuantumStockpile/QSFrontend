@@ -17,10 +17,7 @@ export function AdminDashboard() {
               Usage Analythics
             </Label>
             <div className="bg-card text-card-foreground flex flex-col rounded-xl border pl-4 pr-2 pb-3 pt-3 shadow-sm">
-              <Label className="font-normal text-base">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </Label>
+              <Label className="font-normal text-base">texrt</Label>
             </div>
           </div>
           <ChartPieLabel />

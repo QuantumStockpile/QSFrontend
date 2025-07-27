@@ -1,4 +1,5 @@
 import { AdminEquipment, Login } from "@/pages";
+import { LandingPage } from "./features/Starting-Page";
 import { SignUp } from "@/pages";
 import { UserEquipment } from "@/pages";
 import { UserHistory } from "@/pages";
@@ -12,7 +13,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById("root") as HTMLElement,
 );
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <React.StrictMode>
       <BrowserRouter>
         <Routes>
+          <Route element={<LandingPage />} path="/" />
           <Route element={<Login />} path="/login" />
           <Route element={<SignUp />} path="/sign-up" />
           <Route element={<UserEquipment />} path="/u-eq" />
@@ -32,10 +34,7 @@ function App() {
           <Route element={<AdminDashboard />} path="/a-das" />
         </Routes>
       </BrowserRouter>
-    </React.StrictMode>
+    </React.StrictMode>,
   );
-
-  return Login;
-  return SignUp;
 }
 export default App;
