@@ -12,16 +12,6 @@ import {
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import {
-  Drawer,
-  //DrawerClose,
-  DrawerContent,
-  //DrawerDescription,
-  //DrawerFooter,
-  //DrawerHeader,
-  //DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
-import {
   Select,
   SelectContent,
   SelectItem,
@@ -30,7 +20,6 @@ import {
   SelectGroup,
   //SelectLabel,
 } from "@/components/ui/select";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Input } from "@/components/ui/input";
 
 import { SearchSVG } from "@/svg/SearchSVG";
@@ -135,13 +124,17 @@ export function AdminUsers() {
                 <CardHeader>
                   <CardTitle className="">{user.username}</CardTitle>
                   <CardDescription className="">
-                    <Label>{user.email}</Label><br />
-                    <Label>Role: {user.role.description}</Label><br />
-                    <Label>Status: {user.is_active ? "Active" : "Inactive"}</Label>
+                    <Label>{user.email}</Label>
+                    <br />
+                    <Label>Role: {user.role.description}</Label>
+                    <br />
+                    <Label>
+                      Status: {user.is_active ? "Active" : "Inactive"}
+                    </Label>
                   </CardDescription>
                 </CardHeader>
                 {user.role.description !== "admin" && (
-                  <Button 
+                  <Button
                     className="w-28 -mb-2 -mt-2 place-self-center"
                     onClick={() => handleElevateUser(user.email)}
                   >
